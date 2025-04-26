@@ -15,6 +15,11 @@
         <input type="text" name="city" placeholder="Enter city name" />
         <button type="submit">Get Weather</button>
       </form>
+
+      <div id="loading" class="loading-spinner" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i> Loading weather...
+      </div>
+      
       <% if (error) { %>
       <p class="error"><%= error %></p>
       <% } else if (weather) { %>
@@ -36,5 +41,15 @@
       </div>
       <% } %>
     </div>
+
+    <script>
+      const form = document.querySelector('form');
+      const loading = document.getElementById('loading');
+    
+      form.addEventListener('submit', () => {
+        loading.style.display = 'block'; // Show the loading spinner
+      });
+    </script>
+    
   </body>
 </html>
